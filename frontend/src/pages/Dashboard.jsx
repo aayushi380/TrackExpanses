@@ -15,8 +15,10 @@ import FinancialCard from '../components/FinancialCard.jsx';
 import GaugeCard from '../components/GaugeCard.jsx';
 import { Cell, Legend, Pie, ResponsiveContainer, PieChart, Tooltip } from 'recharts';
 import AddTransactionModal from '../components/Add.jsx';
+import { API_BASE } from "../config/api";
 
-const API_BASE="http://localhost:4000/api"
+
+// const API_BASE="http://localhost:4000/api"
 
 const getAuthHeader = ()=>{
   const token = localStorage.getItem("token") || localStorage.getItem("authToken");
@@ -58,6 +60,7 @@ const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [gaugeData, setGaugeData] = useState([]);
   const [loading, setLoading] = useState(false);
+  // const isSubmitting = useRef(false);
   const [overviewMeta, setOverviewMeta] = useState({});
   const [showAllIncome, setShowAllIncome] = useState(false); // TO TOGGLE
   const [showAllExpense, setShowAllExpense] = useState(false);
@@ -359,8 +362,10 @@ const Dashboard = () => {
           headers: getAuthHeader()
         })
       }
-     await refreshTransactions();
-     await fetchDashboardOverview();
+    //  await refreshTransactions();
+    //  await fetchDashboardOverview();
+      // Transaction save hone ke turant baad modal close
+  setShowModal(false);
 
      setNewTransaction({
        date: new Date().toISOString().split("T")[0],
@@ -368,7 +373,11 @@ const Dashboard = () => {
        amount: "",
        type: "expense",
        category: "Food",
-     }); setShowModal(false)
+     }); 
+     // Dashboard data refresh
+  await refreshTransactions();
+  await fetchDashboardOverview();
+    //  setShowModal(false)
     }catch(err){
         console.error("Failed to add Transaction:", err?.response || err.message || err);
     }

@@ -7,8 +7,10 @@ import { ArrowDown, ArrowUp, Car, ChevronDown, ChevronUp, Clock, CreditCard, Dol
   Home, Info, PieChart, PiggyBank, RefreshCw, ShoppingCart, TrendingUp, Utensils, Zap } from 'lucide-react';
 import axios from 'axios';
 import { Outlet } from 'react-router-dom';
+import { API_BASE } from "../config/api";
 
-const API_BASE = "http://localhost:4000/api";
+
+// const API_BASE = "http://localhost:4000/api";
 const CATEGORY_ICONS = {
   Food: <Utensils className="w-4 h-4" />,
   Housing: <Home className="w-4 h-4" />,
@@ -494,7 +496,7 @@ const Layout = ({onLogout, user}) => {
                   ) : (
                     <>
                     <ChevronDown className="w-5 h-5"/>
-                    View All Transactions(transactions.length)
+                    View All Transactions({transactions.length})
                     </>
                   )}
                 </button>

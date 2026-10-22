@@ -8,8 +8,10 @@ import axios from 'axios'
 import Income from './pages/Income.jsx'
 import Expense from "./pages/Expense.jsx"
 import Profile from "./pages/Profile.jsx"
+import { API_URL } from "./config/api";
 
-const API_URL="http://localhost:4000";
+
+// const API_URL="http://localhost:4000";
 
 // TO GET TRANSCATION from LOCALSTORAGE
 const getTransactionFromStorage = () =>{

@@ -3,8 +3,10 @@ import { loginStyles } from '../assets/dummyStyles.js';
 import { Mail, User,Lock, Eye, EyeOff } from 'lucide-react';
 import { useNavigate, Link} from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from "../config/api";
 
-const Login = ({onLogin, API_URL="http://localhost:4000"}) => {
+// const Login = ({onLogin, API_URL="http://localhost:4000"}) => {
+  const Login = ({ onLogin }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

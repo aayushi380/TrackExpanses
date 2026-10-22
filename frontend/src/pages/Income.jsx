@@ -30,8 +30,9 @@ import FinancialCard from "../components/FinancialCard.jsx";
 import { getTimeFrameRange, generateChartPoints } from "../components/Helpers.jsx";
 import { INCOME_COLORS, CATEGORY_ICONS_Inc } from "../assets/color.jsx";
 import { incomeStyles as styles } from "../assets/dummyStyles.js";
+import { API_BASE } from "../config/api";
 
-const API_BASE = "http://localhost:4000/api";
+// const API_BASE = "http://localhost:4000/api";
 
 
 // HELPS in converting date to iso

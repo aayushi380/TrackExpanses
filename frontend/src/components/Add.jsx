@@ -9,6 +9,7 @@ const AddTransactionModal = ({
   newTransaction,
   setNewTransaction,
   handleAddTransaction,
+   loading = false,
   type = "both",
   title = "Add New Transaction",
   buttonText = "Add Transaction",
@@ -41,6 +42,8 @@ const AddTransactionModal = ({
 
        <form onSubmit={(e)=>{
         e.preventDefault();
+        // console.log("Add Transaction form submitted");
+         if (loading) return;
         handleAddTransaction();
        }}>
          <div className={modalStyles.form}>
@@ -142,8 +145,11 @@ const AddTransactionModal = ({
              />
            </div>
 
-           <button type="submit" className={modalStyles.submitButton(colorClass.button)}>
-             {buttonText}
+           <button 
+           type="submit"
+            disabled={loading}    
+            className={modalStyles.submitButton(colorClass.button)}>
+             {loading ? "Adding..." : buttonText}
            </button>
          </div>
        </form>
